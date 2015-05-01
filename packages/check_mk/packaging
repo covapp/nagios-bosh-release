@@ -1,0 +1,24 @@
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Detect # of CPUs so make jobs can be parallelized
+CPUS=$(grep -c ^processor /proc/cpuinfo)
+ # Available variables
+# $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
+# $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
+export HOME=/var/vcap
+
+tar xfz check_mk/xinetd-2-3-15.tar.gz
+(
+  cd xinetd-xinetd-2-3-15/
+  ./configure --prefix=$BOSH_INSTALL_TARGET
+  make -j${CPUS} && make install
+  export PATH=/var/vcap/packages/check_mk/sbin:$PATH
+)
+
+tar xfz check_mk/check-mk-agent_1.2.4.tar.gz
+(
+  cp -r check_mk/* $BOSH_INSTALL_TARGET
+  export PATH=/var/vcap/packages/check_mk/usr/bin:$PATH
+)
+

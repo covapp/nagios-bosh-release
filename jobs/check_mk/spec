@@ -1,0 +1,11 @@
+---
+name: check_mk
+packages:
+- check_mk
+templates:
+  bin/check_mk_ctl: bin/check_mk_ctl
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+properties:
+  check_mk.test:
+    default: "test"

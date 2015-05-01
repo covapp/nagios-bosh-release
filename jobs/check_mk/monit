@@ -1,0 +1,5 @@
+check process check_mk
+  with pidfile /var/vcap/sys/run/check_mk/check_mk.pid
+  start program "/var/vcap/jobs/check_mk/bin/check_mk_ctl start"
+  stop program "/var/vcap/jobs/check_mk/bin/check_mk_ctl stop"
+  group vcap
