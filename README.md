@@ -1,4 +1,4 @@
-# BOSH Release for nagios
+# BOSH Release for Nagios and check_mk agent
 
 ## Usage
 
@@ -6,8 +6,8 @@ To use this bosh release, first upload it to your bosh:
 
 ```
 bosh target BOSH_HOST
-git clone https://github.com/cloudfoundry-community/nagios-boshrelease.git
-cd nagios-boshrelease
+git clone https://github.com/covapp/nagios-bosh-release.git
+cd nagios-bosh-release
 bosh upload release releases/nagios-1.yml
 ```
 
