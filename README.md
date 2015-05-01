@@ -49,3 +49,4 @@ You now suffix this file path to the `make_manifest` command:
 templates/make_manifest openstack-nova my-networking.yml
 bosh -n deploy
 ```
+# nagios-bosh-release
