@@ -1,0 +1,13 @@
+---
+name: check_mk_agent
+
+templates:
+  check_mk_agent_ctl.sh.erb: bin/check_mk_agent_ctl
+
+packages:
+  - check_mk_agent
+
+properties:
+  check_mk_agent.test:
+    description: "Mode to run the agent in. (client or server)"
+    default: client

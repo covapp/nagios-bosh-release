@@ -1,0 +1,8 @@
+---
+name: check_mk_agent
+
+dependencies: []
+
+files:
+- check_mk_agent/xinetd-2-3-15.tar.gz
+- check_mk_agent/check-mk-agent_1.2.4.tar.gz

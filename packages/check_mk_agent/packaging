@@ -8,14 +8,14 @@ CPUS=$(grep -c ^processor /proc/cpuinfo)
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
 export HOME=/var/vcap
 
-tar xfz check_mk/xinetd-2-3-15.tar.gz
+tar xfz check_mk_agent/xinetd-2-3-15.tar.gz
 (
   cd xinetd-xinetd-2-3-15/
   ./configure --prefix=$BOSH_INSTALL_TARGET
   make -j${CPUS} && make install
 )
 
-tar xfz check_mk/check-mk-agent_1.2.4.tar.gz
+tar xfz check_mk_agent/check-mk-agent_1.2.4.tar.gz
 (
-  cp -r check_mk/* $BOSH_INSTALL_TARGET
+  cp -r check_mk/* $BOSH_INSTALL_TARGET 
 )
